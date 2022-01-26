@@ -2,10 +2,7 @@ package net.mcdesertion.furniturelib;
 
 import com.google.gson.Gson;
 import lombok.Getter;
-import net.mcdesertion.furniturelib.listeners.EntityDismountListener;
-import net.mcdesertion.furniturelib.listeners.PlayerInteractAtEntityListener;
-import net.mcdesertion.furniturelib.listeners.SeatClickListener;
-import net.mcdesertion.furniturelib.listeners.SeatDismountListener;
+import net.mcdesertion.furniturelib.listeners.*;
 import net.mcdesertion.furniturelib.objects.Furniture;
 import net.mcdesertion.furniturelib.objects.Seat;
 import org.bukkit.Bukkit;
@@ -37,6 +34,7 @@ public final class FurnitureLib {
         Bukkit.getPluginManager().registerEvents(new EntityDismountListener(), plugin);
         Bukkit.getPluginManager().registerEvents(new SeatClickListener(), plugin);
         Bukkit.getPluginManager().registerEvents(new SeatDismountListener(), plugin);
+        Bukkit.getPluginManager().registerEvents(new FurnitureClickListener(), plugin);
     }
 
     public Furniture createFurniture(Location location, ItemStack model, List<Seat> seats) {

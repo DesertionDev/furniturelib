@@ -21,12 +21,14 @@ public class PlayerInteractAtEntityListener implements Listener {
         ArmorStand armorStand = (ArmorStand) event.getRightClicked();
         if (armorStand.hasMetadata("isFurniture")) {
             event.setCancelled(true);
-            Bukkit.getPluginManager().callEvent(new FurnitureClickEvent(FurnitureLib.getGson().fromJson(
-                    armorStand.getMetadata("furnitureData").get(0).asString(), Furniture.class), event.getPlayer(), false));
+            Furniture furniture = FurnitureLib.getGson().fromJson(armorStand.getMetadata("furnitureData").get(0).asString(), Furniture.class);
+            furniture.setHolder(armorStand);
+            Bukkit.getPluginManager().callEvent(new FurnitureClickEvent(furniture, event.getPlayer(), false));
         } else if (armorStand.hasMetadata("isSeat")) {
             event.setCancelled(true);
-            Bukkit.getPluginManager().callEvent(new SeatClickEvent(FurnitureLib.getGson().fromJson(
-                    armorStand.getMetadata("seatData").get(0).asString(), Seat.class), event.getPlayer(), false));
+            Seat seat = FurnitureLib.getGson().fromJson(armorStand.getMetadata("seatData").get(0).asString(), Seat.class);
+            seat.setHolder(armorStand);
+            Bukkit.getPluginManager().callEvent(new SeatClickEvent(seat, event.getPlayer(), false));
         }
     }
 

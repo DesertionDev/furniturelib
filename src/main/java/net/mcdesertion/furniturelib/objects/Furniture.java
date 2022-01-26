@@ -30,6 +30,7 @@ public class Furniture {
         holder.setItem(EquipmentSlot.HEAD, model.clone());
         holder.setVisible(false);
         holder.setAI(false);
+        holder.setGravity(false);
         holder.setCollidable(false);
         holder.setMetadata("isFurniture", new FixedMetadataValue(FurnitureLib.getPlugin(), true));
         holder.setMetadata("furnitureData", new FixedMetadataValue(FurnitureLib.getPlugin(), FurnitureLib.getGson().toJson(this)));

@@ -31,6 +31,7 @@ public class Seat {
         holder.setVisible(false);
         holder.setAI(false);
         holder.setCollidable(false);
+        holder.setGravity(false);
         holder.setMetadata("isSeat", new FixedMetadataValue(FurnitureLib.getPlugin(), true));
         holder.setMetadata("seatData", new FixedMetadataValue(FurnitureLib.getPlugin(), FurnitureLib.getGson().toJson(this)));
     }

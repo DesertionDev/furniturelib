@@ -26,8 +26,9 @@ public class EntityDismountListener implements Listener {
             return;
         }
         event.setCancelled(true);
-        Bukkit.getPluginManager().callEvent(new SeatDismountEvent(FurnitureLib.getGson().fromJson(
-                armorStand.getMetadata("seatData").get(0).asString(), Seat.class), (Player) event.getEntity()));
+        Seat seat = FurnitureLib.getGson().fromJson(armorStand.getMetadata("seatData").get(0).asString(), Seat.class);
+        seat.setHolder(armorStand);
+        Bukkit.getPluginManager().callEvent(new SeatDismountEvent(seat, (Player) event.getEntity()));
     }
 
 }
