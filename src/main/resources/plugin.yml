@@ -1,0 +1,7 @@
+name: FurnitureLib
+version: '${project.version}'
+main: net.mcdesertion.furniturelib.FurnitureLib
+api-version: 1.17
+authors: [ legofreak107, ItsLars ]
+description: Furniture Library used in Desertion
+website: www.mcdesertion.net
